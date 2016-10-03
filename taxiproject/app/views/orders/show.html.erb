@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dispatcher:</strong>
+  <%= @order.dispatcher_id %>
+</p>
+
+<p>
+  <strong>Driver:</strong>
+  <%= @order.driver_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @order.comment %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @order.phone_number %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @order.email %>
+</p>
+
+<p>
+  <strong>Rote:</strong>
+  <%= @order.rote %>
+</p>
+
+<p>
+  <strong>Number of passengers:</strong>
+  <%= @order.number_of_passengers %>
+</p>
+
+<p>
+  <strong>Date of trip:</strong>
+  <%= @order.date_of_trip %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
