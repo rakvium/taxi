@@ -16,7 +16,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'cancancan'
 gem 'rubocop'
-gem 'vanilla-ujs'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
