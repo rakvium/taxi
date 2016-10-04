@@ -1,6 +1,6 @@
 == README
 
-## Contributors:
+==== Contributors:
 
 * denis denisdotsenko7@gmail.com
 
