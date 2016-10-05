@@ -1,6 +1,6 @@
 == README
 
-Contributors.
+Contributors:
 
 serj  serj.bichkhidzhy@gmail.com
 
