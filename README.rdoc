@@ -1,8 +1,10 @@
 == README
 
-Contributors:
+==== Contributors:
 
-serj  serj.bichkhidzhy@gmail.com
+* denis denisdotsenko7@gmail.com
+* dmytro.ka.ua@gmail.com
+* serg serj.bichkhidzhy@gmail.com
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
