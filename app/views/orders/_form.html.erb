@@ -12,32 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :dispatcher_id %><br>
-    <%= f.number_field :dispatcher_id %>
+    <%= f.label 'Адрес, куда подать машину' %><br>
+    <%= text_area_tag :adres_from %>
   </div>
   <div class="field">
-    <%= f.label :driver_id %><br>
-    <%= f.number_field :driver_id %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.number_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :rote %><br>
-    <%= f.text_area :rote %>
+    <%= f.label 'Адрес, куда будете ехать' %><br>
+    <%= text_area_tag :adres_to %>
   </div>
   <div class="field">
     <%= f.label :number_of_passengers %><br>
@@ -46,6 +26,14 @@
   <div class="field">
     <%= f.label :date_of_trip %><br>
     <%= f.datetime_select :date_of_trip %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
   </div>
   <div class="actions">
     <%= f.submit %>
