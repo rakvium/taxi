@@ -10,7 +10,8 @@ RSpec.describe "orders/index", type: :view do
         :comment => "MyText",
         :phone_number => "Phone Number",
         :email => "Email",
-        :rote => "MyText",
+        :AdresFrom => "Adres1",
+        :AdresTo => "Adres2",
         :number_of_passengers => 5
       ),
       Order.create!(
@@ -20,7 +21,8 @@ RSpec.describe "orders/index", type: :view do
         :comment => "MyText",
         :phone_number => "Phone Number",
         :email => "Email",
-        :rote => "MyText",
+        :AdresFrom => "Adres1",
+        :AdresTo => "Adres2",
         :number_of_passengers => 5
       )
     ])
@@ -34,7 +36,8 @@ RSpec.describe "orders/index", type: :view do
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "Phone Number".to_s, :count => 2
     assert_select "tr>td", :text => "Email".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
+    assert_select "tr>td", :text => "Adres1".to_s, :count => 2
+    assert_select "tr>td", :text => "Adres2".to_s, :count => 2
     assert_select "tr>td", :text => 5.to_s, :count => 2
   end
 end

@@ -9,7 +9,8 @@ RSpec.describe "orders/show", type: :view do
       :comment => "MyText",
       :phone_number => "Phone Number",
       :email => "Email",
-      :rote => "MyText",
+      :AdresFrom => "Adres1",
+      :AdresTo => "Adres2",
       :number_of_passengers => 5
     ))
   end
@@ -22,7 +23,8 @@ RSpec.describe "orders/show", type: :view do
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/Phone Number/)
     expect(rendered).to match(/Email/)
-    expect(rendered).to match(/MyText/)
+    expect(rendered).to match(/Adres1/)
+    expect(rendered).to match(/Adres2/)
     expect(rendered).to match(/5/)
   end
 end

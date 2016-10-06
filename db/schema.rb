@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003144644) do
+ActiveRecord::Schema.define(version: 20161006075348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +26,11 @@ ActiveRecord::Schema.define(version: 20161003144644) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "name"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_dispatchers_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_dispatchers_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "dispatchers", ["email"], name: "index_dispatchers_on_email", unique: true, using: :btree
-  add_index "dispatchers", ["reset_password_token"], name: "index_dispatchers_on_reset_password_token", unique: true, using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.integer  "dispatcher_id"
@@ -42,11 +39,12 @@ ActiveRecord::Schema.define(version: 20161003144644) do
     t.text     "comment"
     t.string   "phone_number"
     t.string   "email"
-    t.text     "rote"
     t.integer  "number_of_passengers"
     t.datetime "date_of_trip"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.string   "AdresFrom"
+    t.string   "AdresTo"
   end
 
 end

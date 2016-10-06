@@ -9,7 +9,8 @@ RSpec.describe "orders/edit", type: :view do
       :comment => "MyText",
       :phone_number => "MyString",
       :email => "MyString",
-      :rote => "MyText",
+      :AdresFrom => "Adres1",
+      :AdresTo => "Adres2",
       :number_of_passengers => 1
     ))
   end
@@ -31,7 +32,9 @@ RSpec.describe "orders/edit", type: :view do
 
       assert_select "input#order_email[name=?]", "order[email]"
 
-      assert_select "textarea#order_rote[name=?]", "order[rote]"
+      assert_select "input#order_AdresFrom[name=?]", "order[AdresFrom]"
+
+      assert_select "input#order_AdresTo[name=?]", "order[AdresTo]"
 
       assert_select "input#order_number_of_passengers[name=?]", "order[number_of_passengers]"
     end

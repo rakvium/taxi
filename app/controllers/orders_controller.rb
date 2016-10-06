@@ -24,7 +24,10 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    #params[:order][:rote] = params.delete(:adres_from) + '>>>' + params.delete(:adres_to)
     @order = Order.new(order_params)
+
+    @order.status = 0
 
     respond_to do |format|
       if @order.save
@@ -69,6 +72,9 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:dispatcher_id, :driver_id, :status, :comment, :phone_number, :email, :rote, :number_of_passengers, :date_of_trip)
+      params.require(:order).permit(:dispatcher_id, :driver_id, :status,
+                                    :comment, :phone_number, :email,
+                                    :number_of_passengers, :date_of_trip,
+                                    :AdresFrom, :AdresTo)
     end
 end
