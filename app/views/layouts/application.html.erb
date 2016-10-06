@@ -13,7 +13,7 @@
 <%= link_to("Log out", destroy_admin_session_path) %>
 <%= link_to("Register new driver", new_driver_registration_path) %>
 <%elsif !current_driver %>
-<%= link_to("Log in(for admins)", admin_session_path) %>
+<%= link_to("Admins: Log in", admin_session_path) %>
 <%end%>
 <% if  current_driver %>
 <%= link_to("Log out", destroy_driver_session_path) %>
