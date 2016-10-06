@@ -10,8 +10,12 @@ RSpec.describe "orders/index", type: :view do
         :comment => "MyText",
         :phone_number => "Phone Number",
         :email => "Email",
+<<<<<<< HEAD
         :AdresFrom => "Adres1",
         :AdresTo => "Adres2",
+=======
+        :rote => "MyText2",
+>>>>>>> devise_driver
         :number_of_passengers => 5
       ),
       Order.create!(
