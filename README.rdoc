@@ -3,6 +3,7 @@
 ==== Contributors:
 
 * denis denisdotsenko7@gmail.com
+* dmytro.ka.ua@gmail.com
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
