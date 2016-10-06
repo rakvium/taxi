@@ -21,6 +21,36 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number_string %><br />
+    <%= f.text_field :phone_number_string %>
+  </div>
+
+  <div class="field">
+    <%= f.label :license_plate %><br />
+    <%= f.text_field :license_plate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :car_model %><br />
+    <%= f.text_field :car_model %>
+  </div>
+
+  <div class="field">
+    <%= f.label :car_color %><br />
+    <%= f.text_field :car_color %>
+  </div>
+
+  <div class="field">
+    <%= f.label :car_type %><br />
+    <%= f.text_field :car_type %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
