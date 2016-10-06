@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    params[:order][:rote] = params.delete(:adres_from) + '>>>' + params.delete(:adres_to)
+    #params[:order][:rote] = params.delete(:adres_from) + '>>>' + params.delete(:adres_to)
     @order = Order.new(order_params)
 
     @order.status = 0
@@ -43,7 +43,6 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
-    params[:order][:rote] = params.delete(:adres_from) + '>>>' + params.delete(:adres_to)
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
@@ -75,6 +74,7 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:dispatcher_id, :driver_id, :status,
                                     :comment, :phone_number, :email,
-                                    :number_of_passengers, :date_of_trip, :rote)
+                                    :number_of_passengers, :date_of_trip,
+                                    :AdresFrom, :AdresTo)
     end
 end
