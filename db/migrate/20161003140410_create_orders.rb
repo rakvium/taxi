@@ -10,7 +10,6 @@ class CreateOrders < ActiveRecord::Migration
       t.text :rote
       t.integer :number_of_passengers
       t.datetime :date_of_trip
-
       t.timestamps null: false
     end
   end
