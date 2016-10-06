@@ -9,7 +9,8 @@ RSpec.describe "orders/new", type: :view do
       :comment => "MyText",
       :phone_number => "MyString",
       :email => "MyString",
-      :rote => "MyText",
+      :AdresFrom => "Adres1",
+      :AdresTo => "Adres25",
       :number_of_passengers => 1
     ))
   end
@@ -19,11 +20,11 @@ RSpec.describe "orders/new", type: :view do
 
     assert_select "form[action=?][method=?]", orders_path, "post" do
 
-      assert_select "input#order_dispatcher_id[name=?]", "order[dispatcher_id]"
+      #assert_select "input#order_dispatcher_id[name=?]", "order[dispatcher_id]"
 
-      assert_select "input#order_driver_id[name=?]", "order[driver_id]"
+      #assert_select "input#order_driver_id[name=?]", "order[driver_id]"
 
-      assert_select "input#order_status[name=?]", "order[status]"
+      #assert_select "input#order_status[name=?]", "order[status]"
 
       assert_select "textarea#order_comment[name=?]", "order[comment]"
 
@@ -31,7 +32,9 @@ RSpec.describe "orders/new", type: :view do
 
       assert_select "input#order_email[name=?]", "order[email]"
 
-      assert_select "textarea#order_rote[name=?]", "order[rote]"
+      assert_select "input#order_AdresFrom[name=?]", "order[AdresFrom]"
+
+      assert_select "input#order_AdresTo[name=?]", "order[AdresTo]"
 
       assert_select "input#order_number_of_passengers[name=?]", "order[number_of_passengers]"
     end

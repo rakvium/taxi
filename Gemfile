@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'cancancan'
 gem 'rubocop'
+gem 'rails-controller-testing'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -40,6 +41,7 @@ group :development, :test do
   gem 'byebug'
 
   gem 'rspec-rails'
+  gem 'database_cleaner'
 end
 
 group :development do
