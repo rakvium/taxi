@@ -1,0 +1,59 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number_string %><br />
+    <%= f.text_field :phone_number_string %>
+  </div>
+
+  <div class="field">
+    <%= f.label :license_plate %><br />
+    <%= f.text_field :license_plate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :car_model %><br />
+    <%= f.text_field :car_model %>
+  </div>
+
+  <div class="field">
+    <%= f.label :car_color %><br />
+    <%= f.text_field :car_color %>
+  </div>
+
+  <div class="field">
+    <%= f.label :car_type %><br />
+    <%= f.text_field :car_type %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "drivers/shared/links" %>
