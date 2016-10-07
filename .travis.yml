@@ -1,0 +1,12 @@
+addons:
+  postgresql: '9.4'
+language: ruby
+rvm:
+- 2.3.1
+script:
+  - bundle exec rake db:setup
+  - bundle exec rake spec
+cache: bundler
+services:
+  - postgresql
+sudo: required
