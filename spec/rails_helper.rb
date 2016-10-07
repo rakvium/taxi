@@ -34,6 +34,7 @@ RSpec.configure do |config|
 
   DatabaseCleaner.strategy = :truncation
 
+
   # then, whenever you need to clean the DB
   DatabaseCleaner.clean
 
@@ -62,6 +63,9 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/master
 end
