@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.all.order(:status)
   end
 
   # GET /orders/1
@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
     #params[:order][:rote] = params.delete(:adres_from) + '>>>' + params.delete(:adres_to)
     @order = Order.new(order_params)
 
-    @order.status = 0
+    @order.status = 4
 
     respond_to do |format|
       if @order.save

@@ -6,4 +6,5 @@ class Order < ActiveRecord::Base
   }
   validates :phone_number, length: { minimum: 6,
     message: 'Номер должен состоять из 6 и более символов' }
+
 end

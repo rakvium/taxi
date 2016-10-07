@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Orders</h1>
+<h1>Текущие заказы</h1>
 
-<table>
+  <table id="data-table" border ="1" rules ='rows'></table>
+<script type="text/javascript" src="myScript/orders.js"></script>
+<!-- <table id="table-order">
   <thead>
     <tr>
       <th>Dispatcher</th>
@@ -18,8 +20,8 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
+
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.dispatcher_id %></td>
@@ -38,7 +40,7 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
 
 <br>
 
