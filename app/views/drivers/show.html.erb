@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Email:</strong>
+  <%= @driver.email %>
+</p>
+
+<p>
+  <strong>License plate:</strong>
+  <%= @driver.license_plate %>
+</p>
+
+<p>
+  <strong>Car model:</strong>
+  <%= @driver.car_model %>
+</p>
+
+<p>
+  <strong>Car color:</strong>
+  <%= @driver.car_color %>
+</p>
+
+<p>
+  <strong>Car type:</strong>
+  <%= @driver.car_type %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
