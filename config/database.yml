@@ -1,11 +1,15 @@
 default: &default
   adapter: postgresql
+<<<<<<< HEAD
   encoding: unicode
 <<<<<<< HEAD
 =======
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
 >>>>>>> origin/master
+=======
+  encoding: unicode 
+>>>>>>> 0f3561294f77f5a54603753146cd179fa04fed0f
   pool: 5
   port: 5432
 
