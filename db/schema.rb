@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161010105457) do
+ActiveRecord::Schema.define(version: 20161010134131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20161010105457) do
     t.string   "car_model"
     t.string   "car_color"
     t.string   "car_type"
+    t.integer  "status"
     t.index ["email"], name: "index_drivers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true, using: :btree
   end
