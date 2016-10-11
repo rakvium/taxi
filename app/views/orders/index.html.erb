@@ -32,9 +32,11 @@
         <td><%= order.AdresTo %></td>
         <td><%= order.number_of_passengers %></td>
         <td><%= order.date_of_trip %></td>
+        <% if current_dispatcher %>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

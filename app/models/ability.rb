@@ -4,13 +4,15 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
 
-    if user.admin?
+    if user.current_admin
       can :manage, :all
-      buybug
-    elsif user.dispatcher?
-      can :manage, Order
      else 
-      cannot :manage, :all
+      can :read, :all
+      can :create, Order
+    end
+
+    if user.current_dispatcher
+      can :manage, :orders
     end
   end 
 end
