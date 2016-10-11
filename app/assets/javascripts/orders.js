@@ -13,15 +13,25 @@ var dynamicTable = (function() {
     function format(item){
             var tagcolor = '<tr>';
             switch (item){
-                case 4:tagcolor = '<tr class = "case4">';break;
-                case 2:
-                case 3:tagcolor = '<tr class = "case3">';break;
-                case 0:
-                case 1:tagcolor = '<tr class = "case1">';break;
+                case 4:tagcolor = '<tr class = "newOrder">';break;
+                case 3:
+                case 2:tagcolor = '<tr class = "warning">';break;
+                case 1:
+                case 0:tagcolor = '<tr class = "strongWarning">';break;
                 default: tagcolor = '<tr>'; break
             }
             return tagcolor;
         }
+
+    function dateTransform (item){
+        var year = item.substr(0,4);
+        var month = item.substr(5,2);
+        var day = item.substr(8,2);
+        var hour = item.substr(11,2);
+        var minut = item.substr(14,2);
+        item = hour + ":" + minut + " / " + month + "." + day + "." + year;
+        return item;
+    }
 
     function translate(item){
         switch (item){
@@ -31,11 +41,12 @@ var dynamicTable = (function() {
             case 3:item = 'Отклонен 1 водителем';break;
             case 4:item = 'Новый';break;
             case 5:item = 'Отправлен водителю';break;
-            case 6:item = 'Принят водителем';break;
-            case 7:item = 'Водитель на месте';break;
-            case 8:item = 'Клиент в машине';break;
-            case 9:item = 'Выполнен';break;
-            case 10:item = 'Отменен';break;
+            case 6:item = 'отправлен водителю повторно'; break;
+            case 7:item = 'Принят водителем';break;
+            case 8:item = 'Водитель на месте';break;
+            case 9:item = 'Клиент в машине';break;
+            case 10:item = 'Выполнен';break;
+            case 11:item = 'Отменен';break;
         }
         return item;
     }
@@ -43,16 +54,25 @@ var dynamicTable = (function() {
     function _buildRowColumns(names, item) {
         var rowSt = '<tr>';
         var row ='';
+        var str = 'Обработать';
         if (names && names.length > 0)
         {
             $.each(names, function(index, name) {
                 var c = item ? item[name+''] : name;
-                if (name === "status"){
-                    rowSt = format(c);
-                    c=translate(c);
+                if (name === "id"){
+                    var l = "/orders/"+c+"/edit"
+                    row += '<td class = "alCenter">'+str.link(l)+'</td>'
+                } else {
+                    if (name === "status"){
+                        rowSt = format(c);
+                        c=translate(c);
+                    }
+                    if (name === "date_of_trip"){
+                        c=dateTransform(c);
+                    }
+                    if (c === null) c='';
+                    row += '<td class = "alCenter">' + c + '</td>';
                 }
-                if (c == null) c='';
-                row += '<td>' + c + '</td>';
             });
         }
         rowSt = rowSt +row + '<tr>';
@@ -62,10 +82,10 @@ var dynamicTable = (function() {
     /** Builds and sets the headers of the table. */
     function _setHeaders() {
         // if no headers specified, we will use the fields as headers.
-        _headers = (_headers == null || _headers.length < 1) ? _fields : _headers;
+        _headers = (_headers === null || _headers.length < 1) ? _fields : _headers;
         var h = _buildRowColumns(_headers);
         if (_table.children('thead').length < 1)
-            _table.prepend('<thead bgcolor= "#DCDCDC"></thead>');
+            _table.prepend('<thead class = "orderHead"></thead>');
         _table.children('thead').html(h);
     }
 
@@ -73,7 +93,7 @@ var dynamicTable = (function() {
         if (_table.length < 1) return; //not configured.
         var colspan = _headers != null && _headers.length > 0 ?
             'colspan="' + _headers.length + '"' : '';
-        var content = '<tr class="no-items"><td ' + colspan + ' style="text-align:center">' +
+        var content = '<tr><td ' + colspan + ' class = "alCenter">' +
             _defaultText + '</td></tr>';
         if (_table.children('tbody').length > 0)
             _table.children('tbody').html(content);
@@ -82,7 +102,7 @@ var dynamicTable = (function() {
 
     function _removeNoItemsInfo() {
         var c = _table.children('tbody').children('tr');
-        if (c.length == 1 && c.hasClass('no-items')) _table.children('tbody').empty();
+        if (c.length === 1 && c.hasClass('no-items')) _table.children('tbody').empty();
     }
 
     return {
@@ -101,14 +121,14 @@ var dynamicTable = (function() {
         load: function(data) {
             if (_table.length < 1) return; //not configured.
             _setHeaders();
-            _removeNoItemsInfo();
+            _table.children('tbody').empty();
             if (data && data.length > 0) {
                 var rows = '';
                 $.each(data, function(index, item) {
 
                     rows += _buildRowColumns(_fields, item);
                 });
-                _table.children('tbody')['html'](rows);
+                _table.children('tbody').html(rows);
             }
             else {
                 _setNoItemsInfo();
@@ -126,10 +146,10 @@ var dynamicTable = (function() {
 }());
 
 var dt = dynamicTable.config('data-table', //id of the table
-                             ['dispatcher_id', 'driver_id', 'status', 'comment',
+                             ['id','dispatcher_id', 'driver_id', 'status', 'comment',
                              'phone_number', 'email', 'AdresFrom', 'AdresTo',
                              'number_of_passengers', 'date_of_trip'], //field names
-                             ['ID диспетчера', 'ID Водителя', 'Статус заказа',
+                             ['','ID диспетчера', 'ID Водителя', 'Статус заказа',
                              'Комментарий', 'Номер телефона', 'Email',
                              'Куда подать машину', 'Куда ехать', 'Кол-во пассажиров',
                              'Время подачи'], //set to null for field names to be used as header names instead of custom headers
@@ -142,4 +162,4 @@ function _fillTable(){
   }, dataType: "json"});
 }
 _fillTable();
-setInterval( _fillTable, 1000000);
+setInterval( _fillTable, 20000);

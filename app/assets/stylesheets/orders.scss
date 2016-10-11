@@ -2,12 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.case4 {
+.newOrder {
   background-color: #00FF7F;
 }
-.case3 {
+.warning {
   background-color: #FFFF00;
 }
-.case1 {
+.strongWarning {
   background-color: #FF0000;
+}
+.orderHead {
+  background-color: #DCDCDC;
+}
+.alCenter {
+  text-align: center;
+}
+table.one {
+    float:left;
+    width:65%;
+}
+table.two {
+    float:right;
+    width:30%;
 }

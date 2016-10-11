@@ -3,12 +3,17 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all.order(:status)
+    @orders = Order.where(status: [0..9]).order(:status)
+    @drivers = Driver.all
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
+  end
+
+  def archive
+    @orders = Order.all
   end
 
   # GET /orders/new
@@ -42,6 +47,22 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
+    #Если диспетчер залогинен, то при редактировании его id автоматически
+    #вносится в dispatcher_id
+    if current_dispatcher
+      @order.dispatcher_id = current_dispatcher.id
+    end
+    #Если заказ Новый и назаначают водителя, то статус автоматически
+    #становится "Отправлен водителю"
+    if (params[:order][:driver_id] != '' and @order.status==4)
+      @order.status = 5
+    end
+    #Если заказ отклонен или не принят водителем и назаначают нового водителя,
+    #то статус автоматически становится "Отправлен водителю повторно"
+    if (params[:order][:driver_id] != '' and @order.status<4)
+      @order.status = 6
+    end
+
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
