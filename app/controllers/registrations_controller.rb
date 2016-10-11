@@ -45,7 +45,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
    def update_params
-    params.require(:driver).permit(:email, :password, :password_confirmation, :current_pussword, :name, :phone_number_string, :license_plate, :car_model, :car_color, :car_type, :upload => [:tempfile, :original_filename, :content_type, :headers])
+    params.require(:driver).permit(:email, :password, :password_confirmation, :current_password, :name, :phone_number_string, :license_plate, :car_model, :car_color, :car_type, :upload => [:tempfile, :original_filename, :content_type, :headers])
    end
 
   # The path used after sign up.

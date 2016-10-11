@@ -21,13 +21,13 @@
 <%end%>
 
 <% if  current_dispatcher %>
-<%= link_to("Log out", destroy_dispatcher_session_path) %>
+<%= link_to("Log out as dispatcher", destroy_dispatcher_session_path) %>
 <%elsif !current_admin && !current_driver %>
 <%= link_to("Dispatchers: Log in", driver_session_path) %>
 <%end%>
 
 <% if  current_driver %>
-<%= link_to("Log out", destroy_driver_session_path) %>
+<%= link_to("Log out as driver", destroy_driver_session_path) %>
 <%elsif !current_admin && !current_dispatcher %>
 <%= link_to("Drivers: Log in", driver_session_path) %>
 <%end%>
