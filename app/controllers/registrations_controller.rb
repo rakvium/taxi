@@ -1,6 +1,7 @@
+#
 class RegistrationsController < Devise::RegistrationsController
-# before_action :configure_sign_up_params, only: [:create]
-# before_action :configure_account_update_params, only: [:update]
+  # before_action :configure_sign_up_params, only: [:create]
+  # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -39,14 +40,25 @@ class RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-   def sign_up_params
-    params.require(:driver).permit(:email, :password, :password_confirmation, :name, :phone_number_string, :license_plate, :car_model, :car_color, :car_type, :upload => [:tempfile, :original_filename, :content_type, :headers])
-   end
+
+  def sign_up_params
+    params.require(:driver).permit(:email, :password, :password_confirmation,
+                                   :name, :phone_number_string, :license_plate,
+                                   :car_model, :car_color, :car_type,
+                                   upload: [:tempfile, :original_filename,
+                                   :content_type, :headers])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
-   def update_params
-    params.require(:driver).permit(:email, :password, :password_confirmation, :current_pussword, :name, :phone_number_string, :license_plate, :car_model, :car_color, :car_type, :upload => [:tempfile, :original_filename, :content_type, :headers])
-   end
+
+  def update_params
+    params.require(:driver).permit(:email, :password, :password_confirmation,
+                                   :current_password, :name,
+                                   :phone_number_string,
+                                   :license_plate, :car_model, :car_color,
+                                   :car_type, upload: [:tempfile,
+                                   :original_filename, :content_type, :headers])
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
