@@ -40,9 +40,18 @@ GEM
       tzinfo (~> 1.1)
     arel (7.1.2)
     ast (2.3.0)
+    autoprefixer-rails (6.5.0.2)
+      execjs
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
+    bootstrap3-datetimepicker-rails (4.17.42)
+      momentjs-rails (>= 2.8.1)
+    bootstrap3-rails (3.2.0)
+      rails (>= 4.0.0)
     builder (3.2.2)
     byebug (9.0.6)
     cancancan (1.15.0)
@@ -79,6 +88,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
+    momentjs-rails (2.15.1)
+      railties (>= 3.1)
     multi_json (1.12.1)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
@@ -193,12 +204,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
+  bootstrap3-datetimepicker-rails (~> 4.17.42)
+  bootstrap3-rails
   byebug
   cancancan
   database_cleaner
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  momentjs-rails (>= 2.9.0)
   pg (~> 0.15)
   rails (= 5.0)
   rails-controller-testing
@@ -212,4 +227,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.13.2
+   1.13.3

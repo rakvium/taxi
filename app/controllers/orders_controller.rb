@@ -11,20 +11,18 @@ class OrdersController < ApplicationController
   def archive
     @orders = Order.all
   end
-
   # GET /orders/new
   def new
     @order = Order.new
   end
 
   def edit
+    @drivers = Driver.where(status: 0)
   end
 
   def create
     @order = Order.new(order_params)
-
     @order.status = 4
-
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
@@ -37,22 +35,9 @@ class OrdersController < ApplicationController
   end
 
   def update
-    #Если диспетчер залогинен, то при редактировании его id автоматически
-    #вносится в dispatcher_id
-    if current_dispatcher
-      @order.dispatcher_id = current_dispatcher.id
-    end
-    #Если заказ Новый и назаначают водителя, то статус автоматически
-    #становится "Отправлен водителю"
-    if (params[:order][:driver_id] != '' and @order.status==4)
-      @order.status = 5
-    end
-    #Если заказ отклонен или не принят водителем и назаначают нового водителя,
-    #то статус автоматически становится "Отправлен водителю повторно"
-    if (params[:order][:driver_id] != '' and @order.status<4)
-      @order.status = 6
-    end
-
+    @order.dispatcher_id = current_dispatcher.id if current_dispatcher
+    @order.status = 5 if params[:order][:driver_id] != '' && @order.status == 4
+    @order.status = 6 if params[:order][:driver_id] != '' && @order.status < 4
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
