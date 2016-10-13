@@ -31,34 +31,29 @@
     </tbody>
   </table>
 
-  <!--<div class="field">
-    <%= f.label 'Водитель' %><br>
-    <%= f.number_field :driver_id %>
-  </div>-->
   <div class="field">
-    <%= f.label 'Водитель' %><br>
+    <%= f.label :driver_id %><br>
     <%= f.collection_select(:driver_id, @drivers, :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label 'Комментарий' %><br>
+    <%= f.label :comment %><br>
     <%= f.text_area :comment %>
   </div>
 
   <div class="field">
-    <%= f.label 'Адрес, куда подать машину' %><br>
+    <%= f.label :AdresFrom %><br>
     <%= f.text_field :AdresFrom %>
   </div>
   <div class="field">
-    <%= f.label 'Адрес, куда будете ехать' %><br>
+    <%= f.label :AdresTo %><br>
     <%= f.text_field :AdresTo %>
   </div>
   <div class="field">
-    <%= f.label 'Количество пассажиров' %><br>
+    <%= f.label :number_of_passengers %><br>
     <%= f.number_field :number_of_passengers %>
   </div>
   <div class="field">
-    <%= f.label 'Дата и время поездки' %><br>
-    <!--<%= f.datetime_select :date_of_trip %>-->
+    <%= f.label :date_of_trip %><br>
     <div class="row">
       <div class='col-sm-6'>
           <%= f.text_field :date_of_trip,  :class=>'form-control', :id=>'datetimepicker4' %>
@@ -66,7 +61,7 @@
     </div>
   </div>
   <div class="field">
-    <%= f.label 'Контактный номер' %><br>
+    <%= f.label :phone_number %><br>
     <%= f.text_field :phone_number %>
   </div>
   <div class="field">

@@ -7,14 +7,14 @@ RSpec.describe "orders/edit", type: :view do
       :name => 'Ivan',
       :phone_number_string => '09365479815',
       :status => 0,
-      :email => 'Ivan@mail.ru',
+      :email => 'ivan@example.com',
       :password => '123456'
       ),
             Driver.create!(
       :name => 'Petro',
       :phone_number_string => '09365479815',
       :status => 0,
-      :email => 'Petro@mail.ru',
+      :email => 'petro@example.com',
       :password => '123456'
       )
     ])

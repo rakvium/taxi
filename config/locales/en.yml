@@ -24,8 +24,13 @@ en:
   activerecord:
     attributes:
       order:
-        phone_number: "Номер телефона:"
-        AdresFrom: "Ваш адрес:"
-        AdresTo: "Куда будете ехать:"
-        number_of_passengers: "Количество пассажиров:"
-        email: "Email:"
+        dispatcher_id: "ID диспетчера"
+        driver_id: "ID Водителя"
+        status: "Статус заказа"
+        comment: "Дополнительная информация"
+        phone_number: "Контактный номер"
+        email: "Email"
+        AdresFrom: "Адрес, куда подать машину"
+        AdresTo: "Адрес, куда ехать"
+        number_of_passengers: "Количество пассажиров"
+        date_of_trip: "Дата и время, когда подать машину"

@@ -28,8 +28,8 @@ var dynamicTable = (function() {
         var month = item.substr(5,2);
         var day = item.substr(8,2);
         var hour = item.substr(11,2);
-        var minut = item.substr(14,2);
-        item = hour + ":" + minut + " / " + month + "." + day + "." + year;
+        var minutes = item.substr(14,2);
+        item = hour + ":" + minutes + " / " + month + "." + day + "." + year;
         return item;
     }
 
