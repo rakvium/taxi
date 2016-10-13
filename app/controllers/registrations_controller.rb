@@ -15,5 +15,5 @@ class RegistrationsController < Devise::RegistrationsController
                                    :car_model, :car_color, :car_type,
                                    upload: [:tempfile, :original_filename,
                                             :content_type, :headers])
-  end
+  en
 end

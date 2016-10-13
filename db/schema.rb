@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20161012161753) do
     t.string   "car_model"
     t.string   "car_color"
     t.string   "car_type"
+    t.integer  "status"
     t.index ["email"], name: "index_drivers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true, using: :btree
   end
