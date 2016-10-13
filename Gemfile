@@ -13,6 +13,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap-sass'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.42'
 gem 'rails-controller-testing'
+gem 'validates_timeliness', '~> 4.0'
 
 gem 'jquery-rails'
 gem 'turbolinks'

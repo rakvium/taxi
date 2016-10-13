@@ -26,7 +26,7 @@
   </div>
   <div class="field">
     <%= f.label :date_of_trip %><br>
-    <noscript><%= f.datetime_select :date_of_trip %></noscript>
+    <noscript><%= f.datetime_select :date_of_trip, discard_year:true %></noscript>
       <div class="row">
           <div class='col-sm-6'>
               <%= f.text_field :date_of_trip, :class=>'form-control hide_if_no_js', :id=>'datetimepicker4' %>

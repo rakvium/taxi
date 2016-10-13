@@ -16,20 +16,12 @@ class Order < ActiveRecord::Base
   validates :number_of_passengers, numericality:
             { greater_than_or_equal_to: 1, less_than: 9,
               message: 'количество пассажиров в одном заказе от 1 до 8' }
-  validates_format_of :email,
+  validates_format_of :email, :allow_blank => true,
                       :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
                       message: 'проверьте корректность ввода Email'
-  validate :validate_created_at
+  validates_datetime :date_of_trip, :allow_blank => true,
+                     :before => lambda { Date.current.next_month }
 
-  private
-  def convert_created_at
-    begin
-      self.created_at = Date.civil(self.year.to_i, self.month.to_i, self.day.to_i)
-    rescue ArgumentError
-      false
-    end
-  end
-  def validate_created_at
-    errors.add("Created at date", "is invalid.") unless convert_created_at
-  end
+  validates_datetime :date_of_trip, :allow_blank => true,
+                     :on_or_after => lambda {Date.current}
 end
