@@ -7,8 +7,8 @@ RSpec.describe "orders/show", type: :view do
       :driver_id => 3,
       :status => 4,
       :comment => "MyText",
-      :phone_number => "Phone Number",
-      :email => "Email",
+      :phone_number => 123456,
+      :email => "email@example.com",
       :AdresFrom => "Adres1",
       :AdresTo => "Adres2",
       :number_of_passengers => 5
@@ -21,8 +21,8 @@ RSpec.describe "orders/show", type: :view do
     expect(rendered).to match(/3/)
     expect(rendered).to match(/4/)
     expect(rendered).to match(/MyText/)
-    expect(rendered).to match(/Phone Number/)
-    expect(rendered).to match(/Email/)
+    expect(rendered).to match(/123456/)
+    expect(rendered).to match(/email@example.com/)
     expect(rendered).to match(/Adres1/)
     expect(rendered).to match(/Adres2/)
     expect(rendered).to match(/5/)

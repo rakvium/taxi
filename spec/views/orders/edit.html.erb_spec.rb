@@ -24,8 +24,8 @@ RSpec.describe "orders/edit", type: :view do
       :driver_id => 1,
       :status => 1,
       :comment => "MyText",
-      :phone_number => "MyString",
-      :email => "MyString",
+      :phone_number => 123456,
+      :email => "mail@example.com",
       :AdresFrom => "Adres1",
       :AdresTo => "Adres2",
       :number_of_passengers => 1
