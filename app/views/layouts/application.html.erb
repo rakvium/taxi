@@ -7,28 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to("Home", root_path) %>
-<% if current_admin || current_dispatcher || current_driver %>
-<%= link_to("Orders", orders_path) %>
-<% end %>
-
-<% if current_admin %>
-<%= link_to("Log out", destroy_admin_session_path) %>
-<%elsif !current_driver && !current_dispatcher %>
-<%= link_to("Admins: Log in", admin_session_path) %>
-<%end%>
-
-<% if  current_dispatcher %>
-<%= link_to("Log out as dispatcher", destroy_dispatcher_session_path) %>
-<%elsif !current_admin && !current_driver %>
-<%= link_to("Dispatchers: Log in", dispatcher_session_path) %>
-<%end%>
-
-<% if !current_admin && !current_dispatcher %>
-<%= link_to("Log out as a driver", destroy_driver_session_path) %>
-<%elsif current_driver  %>
-<%= link_to("Drivers: Log in", driver_session_path) %>
-<%end%>
 
 <%= yield %>
 

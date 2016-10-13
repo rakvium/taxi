@@ -1,4 +1,4 @@
-ActiveAdmin.register Admin do
+ActiveAdmin.register Dispatcher do
   permit_params :email, :password, :password_confirmation
 
   index do
@@ -10,12 +10,10 @@ ActiveAdmin.register Admin do
   end
 
   filter :email
-  filter :current_sign_in_at
-  filter :sign_in_count
   filter :created_at
 
   form do |f|
-    f.inputs 'Admin Details' do
+    f.inputs 'Dispatcher Details' do
       f.input :email
       f.input :password
       f.input :password_confirmation

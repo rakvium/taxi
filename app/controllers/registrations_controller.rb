@@ -5,7 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
                                    :name, :phone_number_string, :license_plate,
                                    :car_model, :car_color, :car_type,
                                    upload: [:tempfile, :original_filename,
-                                   :content_type, :headers])
+                                            :content_type, :headers])
   end
 
   def update_params
@@ -14,6 +14,6 @@ class RegistrationsController < Devise::RegistrationsController
                                    :phone_number_string, :license_plate,
                                    :car_model, :car_color, :car_type,
                                    upload: [:tempfile, :original_filename,
-                                   :content_type, :headers])
+                                            :content_type, :headers])
   end
 end
