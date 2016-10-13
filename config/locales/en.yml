@@ -21,3 +21,11 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      order:
+        phone_number: "Номер телефона:"
+        AdresFrom: "Ваш адрес:"
+        AdresTo: "Куда будете ехать:"
+        number_of_passengers: "Количество пассажиров:"
+        email: "Email:"
