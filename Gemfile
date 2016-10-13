@@ -8,7 +8,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'cancancan'
 gem 'rubocop'
+gem 'bootstrap3-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap-sass'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.42'
 gem 'rails-controller-testing'
+gem 'validates_timeliness', '~> 4.0'
 
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -23,7 +28,5 @@ end
 
 group :development do
   gem 'web-console', '~> 2.0'
-  gem 'rails-controller-testing'
   gem 'spring'
 end
-

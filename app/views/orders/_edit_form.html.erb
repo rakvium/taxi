@@ -10,18 +10,30 @@
       </ul>
     </div>
   <% end %>
+  <table id="driver-table" class = "two" border=1 rules=rows>
+      <thead>
+      <tr>
+        <th>Статус</th>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Номер телефона</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @drivers.each do |driver| %>
+        <tr>
+          <td><%= status_string(driver.status) %></td>
+          <td><%= driver.id %></td>
+          <td><%= driver.name %></td>
+          <td><%= driver.phone_number_string %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
   <div class="field">
-    <%= f.label :dispatcher_id %><br>
-    <%= f.number_field :dispatcher_id %>
-  </div>
-  <div class="field">
     <%= f.label :driver_id %><br>
-    <%= f.number_field :driver_id %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.number_field :status %>
+    <%= f.collection_select(:driver_id, @drivers, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :comment %><br>
@@ -29,11 +41,11 @@
   </div>
 
   <div class="field">
-    <%= f.label 'Адрес, куда подать машину' %><br>
+    <%= f.label :AdresFrom %><br>
     <%= f.text_field :AdresFrom %>
   </div>
   <div class="field">
-    <%= f.label 'Адрес, куда будете ехать' %><br>
+    <%= f.label :AdresTo %><br>
     <%= f.text_field :AdresTo %>
   </div>
   <div class="field">
@@ -42,7 +54,11 @@
   </div>
   <div class="field">
     <%= f.label :date_of_trip %><br>
-    <%= f.datetime_select :date_of_trip %>
+    <div class="row">
+      <div class='col-sm-6'>
+          <%= f.text_field :date_of_trip,  :class=>'form-control', :id=>'datetimepicker4' %>
+      </div>
+    </div>
   </div>
   <div class="field">
     <%= f.label :phone_number %><br>
