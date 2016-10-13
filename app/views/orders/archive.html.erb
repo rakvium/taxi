@@ -1,0 +1,35 @@
+<h1>Архив заказов</h1>
+  <table id="order-table" border=1 rules=rows>
+    <thead>
+      <tr>
+        <th>ID заказа</th>
+        <th>ID Диспетчера</th>
+        <th>ID Водителя</th>
+        <th>Статус</th>
+        <th>Адрес откуда поездка</th>
+        <th>Адрес куда поездка</th>
+        <th>Номер клиента</th>
+        <th>Email</th>
+        <th>Кол-во пассажиров</th>
+        <th>Дата поездки</th>
+        <th>Комментарий</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.dispatcher_id %></td>
+          <td><%= order.driver_id %></td>
+          <td><%= order.status %></td>
+          <td><%= order.AdresFrom %></td>
+          <td><%= order.AdresTo %></td>
+          <td><%= order.phone_number %></td>
+          <td><%= order.email %></td>
+          <td><%= order.number_of_passengers %></td>
+          <td><%= order.date_of_trip %></td>
+          <td><%= order.comment %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

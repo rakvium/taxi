@@ -2,6 +2,23 @@ require 'rails_helper'
 
 RSpec.describe "orders/edit", type: :view do
   before(:each) do
+    @drivers = assign(:drivers, [
+      Driver.create!(
+      :name => 'Ivan',
+      :phone_number_string => '09365479815',
+      :status => 0,
+      :email => 'ivan@example.com',
+      :password => '123456'
+      ),
+            Driver.create!(
+      :name => 'Petro',
+      :phone_number_string => '09365479815',
+      :status => 0,
+      :email => 'petro@example.com',
+      :password => '123456'
+      )
+    ])
+
     @order = assign(:order, Order.create!(
       :dispatcher_id => 1,
       :driver_id => 1,
@@ -19,13 +36,6 @@ RSpec.describe "orders/edit", type: :view do
     render
 
     assert_select "form[action=?][method=?]", order_path(@order), "post" do
-
-      assert_select "input#order_dispatcher_id[name=?]", "order[dispatcher_id]"
-
-      assert_select "input#order_driver_id[name=?]", "order[driver_id]"
-
-      assert_select "input#order_status[name=?]", "order[status]"
-
       assert_select "textarea#order_comment[name=?]", "order[comment]"
 
       assert_select "input#order_phone_number[name=?]", "order[phone_number]"

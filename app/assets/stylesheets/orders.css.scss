@@ -1,0 +1,27 @@
+// Place all the styles related to the Orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.newOrder {
+  background-color: #BCF5A9;
+}
+.warning {
+  background-color: #F3F781;
+}
+.strongWarning {
+  background-color: #FFDAB9;
+}
+.orderHead {
+  background-color: #DCDCDC;
+}
+.alCenter {
+  text-align: center;
+}
+table.one {
+    float:left;
+    width:65%;
+}
+table.two {
+    float:right;
+    width:30%;
+}

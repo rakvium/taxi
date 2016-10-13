@@ -1,0 +1,36 @@
+/* line 5, /home/denis/Proj/taxi/app/assets/stylesheets/orders.css.scss */
+.newOrder {
+  background-color: #00FF7F;
+}
+
+/* line 8, /home/denis/Proj/taxi/app/assets/stylesheets/orders.css.scss */
+.warning {
+  background-color: #FFFF00;
+}
+
+/* line 11, /home/denis/Proj/taxi/app/assets/stylesheets/orders.css.scss */
+.strongWarning {
+  background-color: #FF0000;
+}
+
+/* line 14, /home/denis/Proj/taxi/app/assets/stylesheets/orders.css.scss */
+.orderHead {
+  background-color: #DCDCDC;
+}
+
+/* line 17, /home/denis/Proj/taxi/app/assets/stylesheets/orders.css.scss */
+.alCenter {
+  text-align: center;
+}
+
+/* line 20, /home/denis/Proj/taxi/app/assets/stylesheets/orders.css.scss */
+table.one {
+  float: left;
+  width: 65%;
+}
+
+/* line 24, /home/denis/Proj/taxi/app/assets/stylesheets/orders.css.scss */
+table.two {
+  float: right;
+  width: 30%;
+}
