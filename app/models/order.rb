@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
 
-  belongs_to :dispathcer
+  belongs_to :dispatcher
 
   validates_uniqueness_of :id, scope: [:AdresFrom, :AdresTo, :date_of_trip, :phone_number]
   validates :phone_number, :AdresFrom, :AdresTo, presence: {

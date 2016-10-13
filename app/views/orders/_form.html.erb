@@ -13,19 +13,19 @@
 
 
   <div class="field">
-    <%= f.label 'Адрес, куда подать машину' %><br>
+    <%= f.label :AdresFrom %><br>
     <%= f.text_field :AdresFrom %>
   </div>
   <div class="field">
-    <%= f.label 'Адрес, куда будете ехать' %><br>
+    <%= f.label :AdresTo %><br>
     <%= f.text_field :AdresTo %>
   </div>
   <div class="field">
-    <%= f.label 'Количество пассажиров' %><br>
-    <%= f.number_field :number_of_passengers, :value => 1 %>
+    <%= f.label :number_of_passengers %><br>
+    <%= f.number_field :number_of_passengers %>
   </div>
   <div class="field">
-    <%= f.label 'Укажите дату и время поездки' %><br>
+    <%= f.label :date_of_trip %><br>
     <noscript><%= f.datetime_select :date_of_trip %></noscript>
       <div class="row">
           <div class='col-sm-6'>
@@ -35,19 +35,19 @@
       </div>
   </div>
   <div class="field">
-    <%= f.label 'Здесь вы можете указать дополнительную информацию' %><br>
+    <%= f.label :comment %><br>
     <%= f.text_area :comment %>
   </div>
   <div class="field">
-    <%= f.label 'Ведите номер, по которому с вами можно связаться' %><br>
+    <%= f.label :phone_number %><br>
     <%= f.text_field :phone_number %>
   </div>
   <div class="field">
-    <%= f.label 'Введите email, на который будет отправлена информация о заказе' %><br>
+    <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
   <div class="actions">
     <%= f.submit 'Подтвердить заказ', :class=>"btn btn-success"%>
-    <a href="tel:12345678" class = "btn btn-primary">Позвонить диспетчеру</a>
   </div>
+  <a href="tel:12345678" class = "btn btn-primary">Позвонить диспетчеру<br>(123-45-678)</a>
 <% end %>
