@@ -1,3 +1,4 @@
+#
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   def index
@@ -16,9 +17,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-
     @order.status = 0
-
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
@@ -51,14 +50,15 @@ class OrdersController < ApplicationController
   end
 
   private
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
-    def order_params
-      params.require(:order).permit(:dispatcher_id, :driver_id, :status,
-                                    :comment, :phone_number, :email,
-                                    :number_of_passengers, :date_of_trip,
-                                    :AdresFrom, :AdresTo)
-    end
+  def set_order
+    @order = Order.find(params[:id])
+  end
+
+  def order_params
+    params.require(:order).permit(:dispatcher_id, :driver_id, :status,
+                                  :comment, :phone_number, :email,
+                                  :number_of_passengers, :date_of_trip,
+                                  :AdresFrom, :AdresTo)
+  end
 end

@@ -1,9 +1,10 @@
+#
 class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
   def change
     create_table :drivers do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :email,              null: false, default: ''
+      t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
       t.string   :reset_password_token
@@ -26,13 +27,13 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
       # t.string   :unconfirmed_email # Only if using reconfirmable
 
       ## Lockable
-      # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
+      # t.integer  :failed_attempts, default: 0, null: false # Only if lock str
+      # ategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
       t.string :name
       t.string :phone_number_string
-      t.string :pussword
 
       t.timestamps null: false
     end
